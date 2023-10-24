@@ -195,7 +195,31 @@ body {
     display: block; /* Hace que el botón sea un bloque para la alineación */
   }
   
-  
-  
 
 /*========== INTERFAZ 3 ==========*/
+.corner-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+/* CSS personalizado para hacer el botón más ancho */
+.btn-g-wider {
+    width: 120px; /* Puedes ajustar este valor según tus necesidades */
+}
+
+.btn-g {
+    background-color: green;
+    color: white;
+    width: 150px;
+    height: 50px;
+}
+
+.matematicas-card {
+    height: 70%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: right;
+}
+
