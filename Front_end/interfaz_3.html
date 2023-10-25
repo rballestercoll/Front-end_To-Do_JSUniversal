@@ -16,101 +16,80 @@
             </a>
         </div>
     </nav>
-    <div class="container mt-5">
+    <main id="main" class="p-2 flex-grow-1 bd-highlight">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-8">
+              <h1>Nueva Asignatura</h1>
+            </div>
+            <div class="col-12 col-sm-4 text-end">
+              <button
+                id="task-add"
+                onclick="drawModalTask(false)"
+                type="button"
+                class="btn btn-success"
+              >
+                <i class="fa fa-plus" aria-hidden="true"></i> Añadir tarea
+              </button>
+            </div>
+            <div id="tasks-pending" class="column flex"></div>
+          </div>
+        </div>
+
         <div class="row">
-            <div class="col-4">
-                <div class="card text-center rounded-lg shadow" style="height: 300px;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;">Nueva Asignatura</h5>
-                        <div class="matematicas-card card text-center rounded-lg shadow">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 20px;">Matemáticas</h5>
-                                <button class="btn btn-primary m-2">+</button>
-                                <button class="btn btn-primary m-2">+</button>
-                                <button class="btn btn-primary m-2">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card text-center rounded-lg shadow" style="height: 300px;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;">Aprobada</h5>
-                        <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" data-bs-toggle="modal" data-bs-target="#agregarAprobadaModal">
-                            <i class="bi bi-plus"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card text-center rounded-lg shadow" style="height: 300px;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;">Suspendida</h5>
-                        <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" data-bs-toggle="modal" data-bs-target="#agregarSuspendidaModal">
-                            <i class="bi bi-plus"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+          
+          <div id="form-select-inner" class="col-12 col-sm-5 text-end">
+            <label for="select-semana">Selecciona Semestre: </label>
+            <select id="select-semana" name="select-semana"></select>
+          </div>
         </div>
-    </div>
-    <!-- Cuadrado que agrupa los días de la semana -->
-    <div class="container mt-5">
-        <div class="card text-center rounded-lg shadow" style="height: 83vh; width: 100%;">
-            <div class="card-body d-flex flex-column align-items-center">
-                <h1 class="mt-5">Empezada</h1>
-                <div class="my-3"></div> <!-- Espacio adicional -->
-                <div class="row">
-                    <div class="col-2 text-center" style="margin-left: 40px;">
-                        <h5 class="card-title">Lunes</h5>
-                        <div class="card text-center rounded-lg shadow" style="height: 60vh; width: 100%; padding: 100px;">
-                            <div class="card-body d-flex justify-content-center">
-                                <!-- Contenido del cuadro de Lunes -->
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-4">+</button> <!-- Botón + debajo del cuadro con margen inferior adicional -->
-                    </div>
-                    <div class="col-2 text-center" style="margin-left: 30px;">
-                        <h5 class="card-title">Martes</h5>
-                        <div class="card text-center rounded-lg shadow" style="height: 60vh; width: 100%; padding: 100px;">
-                            <div class="card-body d-flex justify-content-center">
-                                <!-- Contenido del cuadro de Martes -->
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-4">+</button> <!-- Botón + debajo del cuadro con margen inferior adicional -->
-                    </div>
-                    <div class="col-2 text-center" style="margin-left: 30px;">
-                        <h5 class="card-title">Miércoles</h5>
-                        <div class="card text-center rounded-lg shadow" style="height: 60vh; width: 100%; padding: 100px;">
-                            <div class="card-body d-flex justify-content-center">
-                                <!-- Contenido del cuadro de Miércoles -->
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-4">+</button> <!-- Botón + debajo del cuadro con margen inferior adicional -->
-                    </div>
-                    <div class="col-2 text-center" style="margin-left: 30px;">
-                        <h5 class="card-title">Jueves</h5>
-                        <div class="card text-center rounded-lg shadow" style="height: 60vh; width: 100%; padding: 100px;">
-                            <div class="card-body d-flex justify-content-center">
-                                <!-- Contenido del cuadro de Jueves -->
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-4">+</button> <!-- Botón + debajo del cuadro con margen inferior adicional -->
-                    </div>
-                    <div class="col-2 text-center" style="margin-left: 30px;">
-                        <h5 class="card-title">Viernes</h5>
-                        <div class="card text-center rounded-lg shadow" style="height: 60vh; width: 100%; padding: 100px;">
-                            <div class="card-body d-flex justify-content-center">
-                                <!-- Contenido del cuadro de Viernes -->
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-4">+</button> <!-- Botón + debajo del cuadro con margen inferior adicional -->
-                    </div>
-                </div>
+
+        <div class="row">
+          <div id="tasks-week" class="Tabla semana">
+            <div id="day-1" class="column flex">
+              <h1>EMPEZADA</h1>
+              <button
+                id="task-add-1"
+                onclick="drawModalTask(false,$('#select-semana').val(),1)"
+                type="button"
+                class="day-task-add btn btn-success"
+              >
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
             </div>
+
+            <div id="day-2" class="column flex">
+              <h1>APROBADA</h1>
+              <button
+                id="task-add-2"
+                onclick="drawModalTask(false,$('#select-semana').val(),2)"
+                type="button"
+                class="day-task-add btn btn-success"
+              >
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div id="day-3" class="column flex">
+              <h1>SUSPENDIDA</h1>
+              <button
+                id="task-add-3"
+                onclick="drawModalTask(false,$('#select-semana').val(),3)"
+                type="button"
+                class="day-task-add btn btn-success"
+              >
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            
+          </div>
         </div>
+
+        <div id="tasks-list" class="row"></div>
+      </main>
     </div>
+  </div>
     <!-- Botón agregado al final de la página -->
     <div class="container mt-3 text-center">
         <button class="btn btn-g">+</button>
