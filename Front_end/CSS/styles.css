@@ -224,18 +224,18 @@ body {
 }
 
 .column {
-    width: calc(200% / 7);
+    width: 100%;
     margin: 0 10px; /* Agregamos un margen horizontal de 10px entre las columnas */
-    border: solid 1px black;
     min-height: 500px;
     position: relative;
-    padding-bottom: 800px;
-    float: left; /* Usamos float para colocar las columnas en línea */
-    
+    margin-top: 30px;
+    padding: 20px; 
+    background-color: #ffffff;
+    border-radius: 15px;
 }
    #tasks-pending.column {
     min-height: 200px;
-    padding-bottom: 300px;
+    margin-bottom: 30px;
    }
    #tasks-pending {
     width: 100%;
@@ -273,3 +273,4 @@ body {
     border: 1px dotted black;
     margin: 0 1em 1em 0;
     height: 50px;
+   }
